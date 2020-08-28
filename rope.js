@@ -7,23 +7,23 @@ class Rope{
             bodyB:body2,
             pointB: {x:this.offsetX, y:this.offsetY}
         }
-        this.rope = Constraint.create(options)
+        this.rope = Matter.Constraint.create(options)
         World.add(world,this.rope)
     }
 
 display(){
 
-    var pointA = this.bodyA.position
-    var pointB = this.bodyB.position
+    var pointA = this.rope.bodyA.position
+    var pointC = this.rope.bodyB.position
 
     strokeWeight(2)
 
     var Anchor1X = pointA.x
     var Anchor1Y = pointA.y
 
-    var Anchor2X = pointB.x + this.offsetX
-    var Anchor2Y = pointB.x + this.offsetY
-
+    var Anchor2X = pointC.x + this.offsetX
+    var Anchor2Y = pointC.x + this.offsetY
+    stroke("blue")
     line(Anchor1X,Anchor1Y,Anchor2X,Anchor2Y)
 }
 
